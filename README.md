@@ -1,0 +1,2 @@
+# SafeShell
+Bare Backup Repository
