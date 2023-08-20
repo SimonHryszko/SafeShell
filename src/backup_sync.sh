@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ ! -f backup_sync_config ]; then
+    echo "Error: backup_sync_config file not found."
+    exit 1
+fi
+
 mode=$1
 work_tree=$(grep "work-tree" backup_sync_config | cut -d' ' -f2)
 git_dir=$(grep "git-dir" backup_sync_config | cut -d' ' -f2)
