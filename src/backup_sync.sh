@@ -6,7 +6,7 @@ git_dir=$(grep "git-dir" backup_sync_config | cut -d' ' -f2)
 
 if [ "$mode" == "master" ]; then
     git --work-tree=$work_tree --git-dir=$git_dir add -A
-    git --work-tree=$work_tree --git-dir=$git_dir commit -m "Generic commit message"
+    git --work-tree=$work_tree --git-dir=$git_dir commit -m "Updated backup_sync.sh on <date> with changes to <file_path>"
     git --work-tree=$work_tree --git-dir=$git_dir pull
     git --work-tree=$work_tree --git-dir=$git_dir push
 elif [ "$mode" == "slave" ]; then
