@@ -1,10 +1,8 @@
 #!/bin/bash
 
 if [ ! -f $HOME/.config/.IaC ]; then
-    echo "Error: backup_sync_config file not found."
+    echo "Error: file '$HOME/.config/.IaC' not found. Run IaC!"
     exit 1
-    # Add the missing code here
-    # ...
 fi
 
 mode=$1
