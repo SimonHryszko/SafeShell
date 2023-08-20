@@ -1,8 +1,13 @@
 #!/bin/bash
 
+if [ ! -f $HOME/.config/.IaC ]; then
+    echo "Error: file '$HOME/.config/.IaC' not found. Run IaC!"
+    exit 1
+fi
+
 mode=$1
-work_tree=$(grep "work-tree" backup_sync_config | cut -d' ' -f2)
-git_dir=$(grep "git-dir" backup_sync_config | cut -d' ' -f2)
+work_tree=$(grep "work-tree" $HOME/.config/.IaC | cut -d' ' -f2)
+git_dir=$(grep "git-dir" $HOME/.config/.IaC | cut -d' ' -f2)
 
 if [ "$mode" == "master" ]; then
     git --work-tree=$work_tree --git-dir=$git_dir add -A
