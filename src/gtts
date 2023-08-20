@@ -1,0 +1,14 @@
+#!/bin/bash
+SCRIPT_FILE=$(basename "$0")
+FILE_NO_EXT="${SCRIPT_FILE%.*}"
+export DISPLAY=:0.0
+
+PLAYER_STATUS=$(playerctl status)
+
+notify-send "$FILE_NO_EXT" "Generating TTS"
+
+xclip -o | gtts-cli -o /tmp/tts -
+
+[[ $PLAYER_STATUS == "Playing" ]] && playerctl pause
+mpv /tmp/tts --speed=2.5
+[[ $PLAYER_STATUS == "Playing" ]] && playerctl play
