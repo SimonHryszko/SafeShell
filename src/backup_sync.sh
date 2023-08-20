@@ -1,22 +1,6 @@
 #!/bin/bash
 
-function backup_sync() {
-    mode=$1
-    work_tree=$(grep "backup_work_tree" $HOME/.config/.IaC | cut -d'=' -f2)
-    git_dir=$(grep "backup_dest" $HOME/.config/.IaC | cut -d'=' -f2)
-
-    if [ "$mode" == "master" ]; then
-        git --work-tree=$work_tree --git-dir=$git_dir add -A
-        git --work-tree=$work_tree --git-dir=$git_dir commit -m "Generic commit message"
-        git --work-tree=$work_tree --git-dir=$git_dir pull
-        git --work-tree=$work_tree --git-dir=$git_dir push
-    elif [ "$mode" == "slave" ]; then
-        git --work-tree=$work_tree --git-dir=$git_dir pull --force
-    else
-        echo "Error: Invalid mode. Please specify 'master' or 'slave'."
-        exit 1
-    fi
-}
+# Removed the entire function backup_sync()
 
 backup_sync $1
 
