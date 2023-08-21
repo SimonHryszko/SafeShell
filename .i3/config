@@ -65,6 +65,10 @@ bindsym --release mod1+Right exec --no-startup-id "xdotool key --clearmodifiers 
 bindsym $mod+Shift+Control+Left move workspace to output left
 bindsym $mod+Shift+Control+Right move workspace to output right
 
+# Move focus to display on the left/right
+bindsym $mod+mod1+Left focus output left
+bindsym $mod+mod1+Right focus output right
+
 # --- PERSONAL AUTO START ---
 exec /usr/bin/copyq
 exec /usr/bin/kdeconnect-indicator
